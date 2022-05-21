@@ -8,7 +8,14 @@ import movies from './reducers'
 
 const store = configureStore({reducer: movies});
 console.log('store',store);
-console.log('STORE',store.getState);
+console.log('BEFORE STATE',store.getState());
+
+//dispatch function is used to send actions,this takes an action object as argument
+store.dispatch({
+  type:'ADD_MOVIES',
+  movies: [{name: 'Superman'}]
+});
+console.log('AFTER STATE',store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

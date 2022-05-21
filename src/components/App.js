@@ -15,8 +15,8 @@ function App() {
 
             <div className="list">
               {/* we can iterate over the movies using the data.map,then we will pass the movie to the moviecard via props*/}
-              {data.map(movie =>(
-                  <MovieCard movie={movie} />
+              {data.map((movie,index) =>(
+                  <MovieCard movie={movie} key={`movies-${index}`} />
               ))}
             </div>
         </div>
