@@ -1,8 +1,9 @@
-import {ADD_MOVIES,ADD_FAVOURITE} from '../actions';
+import {ADD_MOVIES,ADD_FAVOURITE,REMOVE_FROM_FAVOURITES,SET_SHOW_FAVOURITES} from '../actions';
 
 const initialMoviesState={
     list:[],
-    favourites:[]
+    favourites:[],
+    showFavourites: false
 }
 
 //currect state will never be undefined so we will set it as empty,and next argument action will be passed
@@ -26,6 +27,20 @@ export default function movies(state = initialMoviesState, action){
                 ...state,
                 // adding the movie at the first index and then rest of the movies in the array
                 favourites: [action.movie, ...state.favourites]
+            }
+        case REMOVE_FROM_FAVOURITES:
+            const filteredArray=state.favourites.filter(
+                movie=>movie.Title!== action.movie.Title
+            );
+            return{
+                ...state,
+                // adding the movie at the first index and then rest of the movies in the array
+                favourites: filteredArray
+            }
+        case SET_SHOW_FAVOURITES:
+            return{
+                ...state,
+                showFavourites: action.val
             }
         default:
             return state;
