@@ -16,10 +16,20 @@ import rootReducer from './reducers'
 //   }
 // }
 const logger=({dispatch,getState})=>(next)=>(action)=>{
-  console.log('ACTION_TYPE=',action.type);
+  // console.log('ACTION_TYPE=',action.type);
       next(action);
 }
-const store = configureStore({reducer: rootReducer},applyMiddleware(logger));
+
+const thunk=({dispatch,getState})=>(next)=>(action)=>{
+  // console.log('ACTION_TYPE=',action.type);
+  if(typeof action === 'function'){
+      action(dispatch);
+      return;
+  }
+  next(action);
+}
+
+const store = configureStore({reducer: rootReducer},applyMiddleware(logger,thunk));
 console.log('store',store);
 // console.log('BEFORE STATE',store.getState());
 
