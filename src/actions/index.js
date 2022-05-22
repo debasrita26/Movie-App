@@ -46,7 +46,7 @@ export function setShowFavourites(val){
 export function addMovieToList(movie){
     return {
         type : ADD_MOVIE_TO_LIST,
-        movie : movie
+        movie
     }
 }
 

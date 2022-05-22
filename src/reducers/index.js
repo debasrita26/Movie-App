@@ -47,7 +47,7 @@ export function movies(state = initialMoviesState, action){
         case ADD_MOVIE_TO_LIST:
             return{
                 ...state,
-                showSearchResults:false
+                list: [action.movie, ...state.list],
             }
         default:
             return state;
@@ -55,7 +55,8 @@ export function movies(state = initialMoviesState, action){
 }
 
 const initialSearchState={
-    result:{}
+    result:{},
+    showSearchResults: false
 };
 
 export function search(state=initialSearchState,action){
