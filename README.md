@@ -1,6 +1,6 @@
 # MovieApp
 
-This is a movie app.
+This is a Movie Web Application.
 
 • Developed a Movie app using React where users could add movies to favorites using API and also unfavourite or add to movies
 • Used Redux for State Management
