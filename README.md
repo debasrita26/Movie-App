@@ -2,7 +2,7 @@
 
 This is a Movie Web Application.
 
-• Developed a Movie app using React where users could add movies to favorites using API and also unfavourite or add to movies
+• Developed a Movie app using React where users could add movies to favorites using API, unfavourite them and also add to movies list
 • Used Redux for State Management
 
 ### To start the server
